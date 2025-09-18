@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { UserService } from '@/services/user.service';
 import { HTTP_STATUS } from '@/constants/httpStatus';
+import { createUserSchema } from '@/validation/user.schema';
 
 export async function GET() {
   try {
@@ -16,18 +17,25 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const { firstName, lastName, participationPercentage } = await req.json();
+    const body = await req.json();
 
-    if (!firstName || !lastName || typeof participationPercentage !== 'number') {
-      return NextResponse.json({ error: 'Invalid input' }, { status: HTTP_STATUS.BAD_REQUEST });
+    const parseResult = createUserSchema.safeParse(body);
+
+    if (!parseResult.success) {
+      return NextResponse.json(
+        { error: 'Invalid input', details: parseResult.error.flatten() },
+        { status: HTTP_STATUS.BAD_REQUEST },
+      );
     }
+
+    const { firstName, lastName, participationPercentage } = parseResult.data;
 
     const user = await UserService.createUser(firstName, lastName, participationPercentage);
 
     return NextResponse.json(user, { status: HTTP_STATUS.CREATED });
   } catch (error) {
     return NextResponse.json(
-      { messag: 'Some unexpected error occured!', error },
+      { message: 'Some unexpected error occurred!', error },
       { status: HTTP_STATUS.INTERNAL_SERVER_ERROR },
     );
   }
