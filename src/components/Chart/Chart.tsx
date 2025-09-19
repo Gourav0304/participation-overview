@@ -6,7 +6,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 import { COLORS } from '@/constants/color';
 import type { DoughnutChartProps } from '@/constants';
 
-export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
+export const DoughnutChart = ({ data }: DoughnutChartProps) => {
   const chartData = data.map((user, i) => ({
     name: `${user.firstName} ${user.lastName}`,
     value: user.participationPercentage,

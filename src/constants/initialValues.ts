@@ -3,3 +3,5 @@ export const initialValues = {
   lastName: '',
   participationPercentage: '',
 };
+
+export type DetailsFormValues = typeof initialValues;
