@@ -1,5 +1,4 @@
 import { createColumnHelper } from '@tanstack/react-table';
-import clsx from 'clsx';
 import type { User } from '@/constants';
 
 const columnHelper = createColumnHelper<User>();
@@ -25,16 +24,7 @@ export const getColumns = () => [
     header: 'Participation',
     cell: (info) => {
       const value = info.getValue();
-      return (
-        <span
-          className={clsx(
-            'px-3 py-1 rounded-full text-xs font-semibold',
-            value >= 50 ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700',
-          )}
-        >
-          {value}%
-        </span>
-      );
+      return <span className={'px-3 py-1 rounded-full text-xs font-semibold'}>{value}%</span>;
     },
     meta: { className: 'text-center' },
   }),

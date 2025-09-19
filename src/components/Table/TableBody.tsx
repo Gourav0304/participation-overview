@@ -8,7 +8,10 @@ const getMetaClass = (meta?: ColumnMeta) => meta?.className ?? '';
 export const TableBody = ({ rows }: { rows: Row<User>[] }) => (
   <tbody>
     {rows.map((row) => (
-      <tr key={row.id} className="odd:bg-white even:bg-gray-50">
+      <tr
+        key={row.id}
+        className="odd:bg-white even:bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+      >
         {row.getVisibleCells().map((cell) => (
           <td
             key={cell.id}
