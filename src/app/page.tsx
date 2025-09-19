@@ -29,13 +29,13 @@ export default async function HomePage() {
             <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">
               Participant Table
             </h2>
-            <ParticipationTable data={users} />
+            <ParticipationTable userData={users} />
           </div>
           <div className="flex-1 p-3 flex flex-col items-center justify-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-6 text-center">
               Participation Chart
             </h2>
-            <DoughnutChart data={users} />
+            <DoughnutChart doughnutData={users} />
           </div>
         </div>
       </section>

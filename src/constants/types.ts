@@ -7,7 +7,7 @@ export type User = {
 };
 
 export type DoughnutChartProps = {
-  data: User[];
+  doughnutData: User[];
 };
 
 export type InputProps = {
@@ -22,5 +22,5 @@ export type ColumnMeta = {
 };
 
 export type DataTableProps = {
-  data: User[];
+  userData: User[];
 };

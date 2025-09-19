@@ -14,7 +14,7 @@ const columnHelper = createColumnHelper<User>();
 
 const getMetaClass = (meta?: ColumnMeta) => meta?.className ?? '';
 
-export const ParticipationTable = ({ data }: DataTableProps) => {
+export const ParticipationTable = ({ userData }: DataTableProps) => {
   const columns = useMemo(
     () => [
       columnHelper.accessor((_row, i) => i + 1, {
@@ -55,12 +55,12 @@ export const ParticipationTable = ({ data }: DataTableProps) => {
   );
 
   const table = useReactTable({
-    data,
+    data: userData,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
-  if (!data || data.length === 0) {
+  if (!userData || userData.length === 0) {
     return (
       <div className="w-full max-w-4xl mx-auto py-12 text-center text-gray-500 bg-gray-50 rounded-2xl shadow-md">
         No records available
