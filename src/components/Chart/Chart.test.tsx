@@ -4,7 +4,7 @@ import { COLORS } from '@/constants/color';
 import type { DoughnutChartProps } from '@/constants';
 import '@testing-library/jest-dom';
 
-const mockData: DoughnutChartProps['data'] = [
+const mockData: DoughnutChartProps['doughnutData'] = [
   {
     firstName: 'John',
     lastName: 'Doe',
@@ -56,12 +56,12 @@ jest.mock('recharts', () => {
 
 describe('DoughnutChart', () => {
   it('renders without crashing', () => {
-    render(<DoughnutChart data={mockData} />);
+    render(<DoughnutChart doughnutData={mockData} />);
     expect(screen.getByTestId('piechart')).toBeInTheDocument();
   });
 
   it('renders all cells', () => {
-    render(<DoughnutChart data={mockData} />);
+    render(<DoughnutChart doughnutData={mockData} />);
     const cells = screen.getAllByTestId('cell');
     expect(cells.length).toBe(mockData.length);
     cells.forEach((cell, i) => {
@@ -70,7 +70,7 @@ describe('DoughnutChart', () => {
   });
 
   it('renders user names in legend', () => {
-    render(<DoughnutChart data={mockData} />);
+    render(<DoughnutChart doughnutData={mockData} />);
 
     mockData.forEach((user) => {
       expect(screen.getByText(`${user.firstName} ${user.lastName}`)).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe('DoughnutChart', () => {
   });
 
   it('applies colors from COLORS array', () => {
-    const { container } = render(<DoughnutChart data={mockData} />);
+    const { container } = render(<DoughnutChart doughnutData={mockData} />);
 
     const paths = container.querySelectorAll('.recharts-pie-sector path');
     paths.forEach((path: unknown, i: number) => {

@@ -1,5 +1,5 @@
 import { userApi } from '@/lib/userApi';
-import { DetailsForm } from '@/components/DetailsForm';
+import { DetailsForm } from '@/components/Form/DetailsForm';
 import { ParticipationTable } from '@/components/ParticipationTable';
 import { DoughnutChart } from '@/components/Chart/Chart';
 
