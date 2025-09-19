@@ -8,6 +8,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import clsx from 'clsx';
 
 type ColumnMeta = {
   className?: string;
@@ -25,22 +26,27 @@ export const ParticipationTable = ({ data }: DataTableProps) => {
       columnHelper.accessor((_row, i) => i + 1, {
         header: 'S.No',
         cell: (info) => info.getValue(),
-        meta: { className: 'text-center font-mono font-semibold' },
+        meta: { className: 'text-center font-mono font-semibold text-gray-800' },
       }),
       columnHelper.accessor('firstName', {
         header: 'First Name',
         cell: (info) => info.getValue(),
-        meta: { className: 'text-left pl-6' },
+        meta: { className: 'text-left pl-6 font-medium text-gray-800' },
       }),
       columnHelper.accessor('lastName', {
         header: 'Last Name',
         cell: (info) => info.getValue(),
-        meta: { className: 'text-left pl-6' },
+        meta: { className: 'text-left pl-6 text-gray-800' },
       }),
       columnHelper.accessor('participationPercentage', {
         header: 'Participation',
-        cell: (info) => `${info.getValue()}%`,
-        meta: { className: 'text-center font-semibold text-cyan-700' },
+        cell: (info) => {
+          const value = info.getValue();
+          return (
+            <span className={clsx('px-3 py-1 rounded-full text-xs font-semibold')}>{value}%</span>
+          );
+        },
+        meta: { className: 'text-center' },
       }),
     ],
     [columnHelper],
@@ -54,23 +60,23 @@ export const ParticipationTable = ({ data }: DataTableProps) => {
 
   if (!data || data.length === 0) {
     return (
-      <div className="w-full max-w-4xl mx-auto py-12 text-center text-gray-500 font-medium">
+      <div className="w-full max-w-4xl mx-auto py-12 text-center text-gray-400 font-medium bg-gray-900 rounded-2xl shadow-lg">
         No records available
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg border border-gray-300 overflow-hidden">
+    <div className="w-full md:w-3/4 lg:w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden border border-gray-700">
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-sm">
-          <thead className="bg-gradient-to-r from-cyan-600 to-cyan-400 text-white sticky top-0 z-10">
+        <table className="w-full border-collapse text-sm md:text-base">
+          <thead className="bg-white text-gray-800">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className={`py-3 px-4 border-b border-cyan-300 font-semibold uppercase tracking-wide ${
+                    className={`py-4 px-4 font-semibold uppercase tracking-wider text-sm md:text-base border-b border-gray-700 ${
                       (header.column.columnDef.meta as ColumnMeta)?.className ?? ''
                     }`}
                   >
@@ -80,16 +86,14 @@ export const ParticipationTable = ({ data }: DataTableProps) => {
               </tr>
             ))}
           </thead>
+
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="even:bg-cyan-50 odd:bg-white hover:bg-cyan-100 hover:scale-[1.02] hover:shadow-md transition-transform duration-200 ease-in-out cursor-pointer"
-              >
+              <tr key={row.id} className="odd:bg-gray-100 even:bg-gray-50">
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    className={`py-3 px-4 border-b border-gray-200 ${
+                    className={`py-4 px-4 border-b border-gray-700 ${
                       (cell.column.columnDef.meta as ColumnMeta)?.className ?? ''
                     }`}
                   >

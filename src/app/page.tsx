@@ -7,12 +7,9 @@ export default async function HomePage() {
   const users = await userApi.getUsers();
 
   return (
-    <main className="min-h-screen bg-amber-50">
-      <section className="bg-gradient-to-r from-cyan-300 to-cyan-400 p-8 shadow-lg">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">
-            ADD PARTICIPANT
-          </h2>
+    <main className="min-h-screen bg-gray-50">
+      <section className="bg-cyan-500 p-8 shadow-lg">
+        <div className="max-w-6xl mx-auto">
           <DetailsForm />
         </div>
       </section>
@@ -25,9 +22,11 @@ export default async function HomePage() {
           Visual representation of all participants and their contribution percentages
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
           <div className="flex-1 p-3 overflow-x-auto">
-            <h3 className="text-xl font-semibold mb-4 text-gray-700">Participant Table</h3>
+            <h2 className="text-xl text-center font-semibold mb-8 text-gray-700">
+              Participant Table
+            </h2>
             <ParticipationTable data={users} />
           </div>
           <div className="flex-1 p-3 flex flex-col items-center justify-center">

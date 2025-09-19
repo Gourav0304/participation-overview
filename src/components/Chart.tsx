@@ -29,7 +29,7 @@ export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
   }));
 
   return (
-    <div className="w-full h-96 sm:max-w-lg mx-auto">
+    <div className="w-full h-80 sm:max-w-lg mx-auto">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
@@ -38,7 +38,7 @@ export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
             nameKey="name"
             cx="50%"
             cy="50%"
-            innerRadius={70}
+            innerRadius={50}
             outerRadius={100}
             paddingAngle={4}
           >
