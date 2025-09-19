@@ -5,7 +5,7 @@ import { createUserSchema } from '@/validation/user.schema';
 import { useRouter } from 'next/navigation';
 import { initialValues } from '@/constants';
 import { FormInput } from './FormInput';
-import { handleDetailsFormSubmit } from '@/lib/formHandlers';
+import { handleDetailsFormSubmit } from '@/lib';
 import { useFormik, FormikProvider } from 'formik';
 
 export const DetailsForm = () => {

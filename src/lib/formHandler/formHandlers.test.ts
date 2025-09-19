@@ -1,5 +1,5 @@
 import { handleDetailsFormSubmit } from './formHandlers';
-import { userApi } from '@/lib/userApi';
+import { userApi } from '@/lib';
 import type { DetailsFormValues } from '@/constants/initialValues';
 import type { FormikHelpers } from 'formik';
 import { useRouter } from 'next/navigation';

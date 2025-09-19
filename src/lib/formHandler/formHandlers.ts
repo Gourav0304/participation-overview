@@ -1,6 +1,6 @@
 import type { FormikHelpers } from 'formik';
 import type { DetailsFormValues } from '@/constants/initialValues';
-import { userApi } from '@/lib/userApi';
+import { userApi } from '@/lib';
 import { useRouter } from 'next/navigation';
 
 export const handleDetailsFormSubmit = async (

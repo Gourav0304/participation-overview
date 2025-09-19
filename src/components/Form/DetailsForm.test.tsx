@@ -1,13 +1,13 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { DetailsForm } from '@/components/Form/DetailsForm';
-import { handleDetailsFormSubmit } from '@/lib/formHandlers';
+import { handleDetailsFormSubmit } from '@/lib';
 
 const mockRefresh = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter: () => ({ refresh: mockRefresh }),
 }));
 
-jest.mock('@/lib/formHandlers', () => ({
+jest.mock('@/lib', () => ({
   handleDetailsFormSubmit: jest.fn(),
 }));
 

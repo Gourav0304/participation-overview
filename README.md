@@ -1,48 +1,102 @@
-# 🔋 Fullstack Challenge – Participation Form & Dashboard
+# 📊 Participation Dashboard
 
 This is a fullstack web application implemented entirely with Next.js, using the App Router for front-end and API routes for back-end.
 The app provides a form to collect participation data, displays entries in a responsive table with percentage calculations, and visualizes the data using Recharts.
 
 ---
 
-## Tech Stack
+## 🚀 Running the App
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Gourav0304/participation-overview
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd participation-overview
+```
+
+### 3. Run with Docker
+
+```bash
+docker-compose up
+```
+
+### 4. Install dependencies
+
+At the root of the project:
+
+```bash
+yarn install
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Run Next.js dev server
+
+```bash
+yarn dev
+```
+
+App will be running at:  
+👉 `http://localhost:3000`
+
+---
+
+## 🧪 Testing
+
+This project uses Jest with support for both frontend (client) and backend (api) tests.
+Tests can be run individually or all at once from the root.
+
+Run all tests
+
+```bash
+yarn test
+```
+
+---
+
+## 🛠️ Tech Stack
 
 **Frontend & Backend:**
 
-- ⚛️ Next.js (App Router + API Routes)
-- ⚛️ React + TypeScript
-- 🎨 Tailwind CSS
-- 📝 Formik + Zod (form handling & validation)
-- 📊 Recharts (chart visualization)
-- 🔢 TanStack Table (advanced tables)
+- 🪄 **Next.js** (App Router + API Routes)
+- ⚛️ **React + TypeScript**
+- 🎨 **Tailwind CSS**
+- 📝 **Formik + Zod** (form handling & validation)
+- 📊 **Recharts** (chart visualization)
+- 📑 **TanStack Table** (advanced tables)
 
 **Database & ORM:**
 
-- 🐘 PostgreSQL
-- 🗂️ Prisma ORM
+- 🐘 **PostgreSQL**
+- 🪢 **Prisma ORM**
 
 **Dev Tools:**
 
-- 📦 Yarn
-- 🐳 Docker + docker-compose
-- ✨ ESLint + Prettier
+- 📦 **Yarn**
+- 🐳 **Docker + docker-compose**
+- 🧹 **ESLint + Prettier**
 
 ---
 
-## Features
+## 🚀 Features
 
-- 🔐 **Form Submission:** Users submit participation data via a Formik form with Zod validation
-- 📋 **Dynamic Table:** Responsive table using TanStack Table with styled cells and percentage formatting
-- 📈 **Charts:** Interactive bar and pie charts with Recharts for visual representation of participation data
-- 🚦 **Validation:** Form validations show user-friendly messages
-- 🧪 **Unit Testing:** Fully unit-testable API and UI components
+- 📝 **Form Submission** → Submit participation data with validation (Formik + Zod)
+- 📑 **Dynamic Table** → Responsive table powered by TanStack with percentage formatting
+- 📊 **Charts** → Interactive Pie & Bar charts using Recharts
+- ⚠️ **Validation** → Friendly error messages and structured validation
+- 🧪 **Unit Testing** → Fully unit-tested API routes and UI components
 
 ---
 
-## 📁 Project Structure
+## 📝 Project Structure
 
 ```
-USER-PARTICIPATION/
+PARTICIPATION-DASHBOARD/
 ├── .next/                # Build output
 ├── node_modules/
 ├── prisma/               # Prisma schema/migrations
@@ -63,18 +117,7 @@ USER-PARTICIPATION/
 
 ---
 
-🧪 Development Environment Used
-
-| Tool    | Version      |
-| ------- | ------------ |
-| Node.js | v20.19.0     |
-| PNPM    | v10.14.0     |
-| Docker  | v28.1.1      |
-| OS      | Ubuntu 23.04 |
-
----
-
-## ⚙️ Environment Variables
+## 🌱 Environment Variables
 
 Create a .env file at the root of the project:
 
@@ -98,61 +141,38 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST
 cp .env.example .env
 ```
 
-## 🚀 Running the App
+---
 
-### 1 Run with Docker
+## ⚙️ Development Environment Used
 
-```bash
-docker-compose up
-```
-
-### 2 Install dependencies
-
-At the root of the project:
-
-```bash
-yarn install
-npx prisma generate
-npx prisma migrate dev --name init
-```
-
-### 3 Run Next.js dev server
-
-```bash
-yarn dev
-```
-
-App will be running at:  
-👉 `http://localhost:3000`
+| Tool    | Version      |
+| ------- | ------------ |
+| Node.js | v20.19.0     |
+| PNPM    | v10.14.0     |
+| Docker  | v28.1.1      |
+| OS      | Ubuntu 23.04 |
 
 ---
 
-## 🧪 Testing
+## 🔧 Implementation Highlights
 
-This project uses Jest with support for both frontend (client) and backend (api) tests.
-Tests can be run individually or all at once from the monorepo root.
+### Fullstack with Next.js API Routes
 
-Run all tests
+- API endpoints live inside /app/api
 
-```bash
-yarn test
-```
-
----
-
-## 📝 Developer Notes
-
-## Fullstack with Next.js API Routes
-
-### Backend with Express.js instead of Next.js API routes
-
-- API endpoints live inside /pages/api or /app/api
-
-- Form submission, user CRUD, and data fetching all handled through these Next.js routes
+- Form submission, user creation and data fetching all handled through these Next.js routes
 
 - No separate Node.js/Express service needed
 
-## Server Components & Client Interactivity
+### Data Handling with TanStack Table
+
+- Participation records are rendered using **TanStack Table**.
+
+- Supports custom cell styling via `meta` configs (e.g., alignment, conditional colors).
+
+- Ensures a responsive, accessible table layout with server-side data updates.
+
+### Server Components & Client Interactivity
 
 - Non-interactive UI (table) rendered as server components for faster initial render
 
@@ -160,7 +180,7 @@ yarn test
 
 - Reduces JavaScript bundle size and improves performance
 
-## Testing Strategy
+### Testing Strategy
 
 - API routes tested via mocked apiClient
 

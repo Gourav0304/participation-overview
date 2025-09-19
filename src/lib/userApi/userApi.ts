@@ -1,4 +1,4 @@
-import { apiClient } from '../lib/apiClient';
+import { apiClient } from '@/lib';
 import type { User } from '@/constants';
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';

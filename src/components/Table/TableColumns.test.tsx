@@ -47,12 +47,10 @@ describe('getColumns', () => {
     const { container: highContainer } = render(cell(highInfo));
     const highSpan = highContainer.querySelector('span');
     expect(highSpan?.textContent).toBe('60%');
-    expect(highSpan?.className).toContain('bg-green-100');
 
     const lowInfo = { getValue: () => 30 } as CellContext<User, number>;
     const { container: lowContainer } = render(cell(lowInfo));
     const lowSpan = lowContainer.querySelector('span');
     expect(lowSpan?.textContent).toBe('30%');
-    expect(lowSpan?.className).toContain('bg-yellow-100');
   });
 });

@@ -1,7 +1,5 @@
-import { userApi } from '@/lib/userApi';
-import { DetailsForm } from '@/components/Form/DetailsForm';
-import { ParticipationTable } from '@/components/Table/ParticipationTable';
-import { DoughnutChart } from '@/components/Chart/Chart';
+import { userApi } from '@/lib';
+import { DetailsForm, DoughnutChart, ParticipationTable } from '@/components';
 
 export default async function HomePage() {
   const users = await userApi.getUsers();
