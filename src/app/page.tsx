@@ -1,6 +1,6 @@
 import { userApi } from '@/lib/userApi';
 import { DetailsForm } from '@/components/Form/DetailsForm';
-import { ParticipationTable } from '@/components/ParticipationTable';
+import { ParticipationTable } from '@/components/Table/ParticipationTable';
 import { DoughnutChart } from '@/components/Chart/Chart';
 
 export default async function HomePage() {
