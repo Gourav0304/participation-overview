@@ -1,25 +1,10 @@
 'use client';
 
 import React from 'react';
-import { User } from '@/services/userApi';
+
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-type DoughnutChartProps = {
-  data: User[];
-};
-
-const COLORS = [
-  '#3182CE',
-  '#059669',
-  '#7C3AED',
-  '#94A3B8',
-  '#EF4444',
-  '#F59E0B',
-  '#10B981',
-  '#8B5CF6',
-  '#E11D48',
-  '#3B82F6',
-];
+import { COLORS } from '@/constants/color';
+import type { DoughnutChartProps } from '@/constants';
 
 export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
   const chartData = data.map((user, i) => ({
@@ -38,8 +23,8 @@ export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
             nameKey="name"
             cx="50%"
             cy="50%"
-            innerRadius={50}
-            outerRadius={100}
+            innerRadius={65}
+            outerRadius={120}
             paddingAngle={4}
           >
             {chartData.map((entry) => (

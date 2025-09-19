@@ -1,12 +1,5 @@
-import { apiClient } from './apiClient';
-
-export type User = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  participationPercentage: number;
-  createdAt: string;
-};
+import { apiClient } from '../lib/apiClient';
+import type { User } from '@/constants';
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
