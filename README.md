@@ -86,9 +86,9 @@ yarn test
 ## 🚀 Features
 
 - 📝 **Form Submission** → Submit participation data with validation (Formik + Zod)
-- 📑 **Dynamic Table** → Responsive table powered by TanStack with percentage formatting
 - 📊 **Charts** → Interactive Pie & Bar charts using Recharts
 - ⚠️ **Validation** → Friendly error messages and structured validation
+- 📑 **Dynamic Table** → Responsive table powered by TanStack with percentage formatting
 - 🧪 **Unit Testing** → Fully unit-tested API routes and UI components
 
 ---
@@ -148,7 +148,7 @@ cp .env.example .env
 | Tool    | Version      |
 | ------- | ------------ |
 | Node.js | v20.19.0     |
-| PNPM    | v10.14.0     |
+| Yarn    | v1.22.22     |
 | Docker  | v28.1.1      |
 | OS      | Ubuntu 23.04 |
 
@@ -168,7 +168,7 @@ cp .env.example .env
 
 - Participation records are rendered using **TanStack Table**.
 
-- Supports custom cell styling via `meta` configs (e.g., alignment, conditional colors).
+- Supports custom cell styling via `meta` configs.
 
 - Ensures a responsive, accessible table layout with server-side data updates.
 
